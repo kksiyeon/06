@@ -1,25 +1,35 @@
 #include <stdio.h>
 
-int sumTwo(int a, int b) {
-    return a+b;
+int get_integer(void) {
+    int val;
+    printf("정수를 입력하세요: "); 
+    scanf("%d", &val);            
+    return val;                   
 }
 
-int square(int n) {
-    return n * n;
+int factorial(int n) {
+    int res = 1;
+    for (int i = 1; i <= n; i++) { 
+        res *= i;                 
+    }
+    return res;
 }
 
-int get_max(int x, int y) {
-    if (x>y) {
-        return x;
-    }
-    return y;
-    
-    }
-
+int combination(int n, int r) {
+    return factorial(n) / (factorial(n - r) * factorial(r));
+}
 
 int main(void) {
-    printf("sumTwo(3, 5) 결과: %d\n", sumTwo(3, 5));
-    printf("square(4) 결과: %d\n", square(4));
-    printf("get_max(10, 20) 결과: %d\n", get_max(10, 20));
+    int n, r, result;
+    
+   printf("n 값으로 사용할 ");
+    n = get_integer();
+    printf("r 값으로 사용할 ");
+    r = get_integer();
+
+    result = combination(n, r);
+
+    printf("Combination(%d, %d)의 결과: %d\n", n, r, result);
+
     return 0;
 }
