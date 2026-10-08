@@ -1,22 +1,25 @@
 #include <stdio.h>
 
-void func(void) {
-    int x;
-    printf("func x is at %p\n", &x);
+int sumTwo(int a, int b) {
+    return a+b;
 }
 
-void func_arg(int x) {
-    printf("func_arg x is at %p\n", &x);
+int square(int n) {
+    return n * n;
 }
+
+int get_max(int x, int y) {
+    if (x>y) {
+        return x;
+    }
+    return y;
+    
+    }
+
 
 int main(void) {
-    int x;
-    printf("main x is at %p\n", &x);
-    
-    func();
-    func();
-
-    func_arg(x);
-
+    printf("sumTwo(3, 5) 결과: %d\n", sumTwo(3, 5));
+    printf("square(4) 결과: %d\n", square(4));
+    printf("get_max(10, 20) 결과: %d\n", get_max(10, 20));
     return 0;
 }
